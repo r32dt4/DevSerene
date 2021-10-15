@@ -770,9 +770,6 @@ declare namespace Serenity.Demo.Northwind {
     }
 }
 declare namespace Serenity.Demo.Northwind {
-    namespace PermissionKeys {
-        const General = "Northwind:General";
-    }
 }
 declare namespace Serenity.Demo.Northwind {
     class ProductColumns {

@@ -38,6 +38,11 @@ namespace MVC
 
         public static class Default
         {
+            public static class AccountingBook
+            {
+                public const string AccountingBookIndex = "~/Modules/Default/AccountingBook/AccountingBookIndex.cshtml";
+            }
+
             public static class ToDoList
             {
                 public const string ToDoListIndex = "~/Modules/Default/ToDoList/ToDoListIndex.cshtml";

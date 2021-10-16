@@ -404,6 +404,78 @@ declare namespace DevSerene.Administration {
     }
 }
 declare namespace DevSerene.Default {
+    class AccountingBookColumns {
+        static columnsKey: string;
+    }
+}
+declare namespace DevSerene.Default {
+    interface AccountingBookForm {
+        Date: Serenity.DateTimeEditor;
+        Type: AccountingBook_Type_Editor;
+        Amount: Serenity.IntegerEditor;
+        Category: AccountingBook_Expenditure_Category_Editor;
+        Account: AccountingBook_Account_Editor;
+        Description: Serenity.TextAreaEditor;
+        UpdateUser: Serenity.StringEditor;
+        UpdateDate: Serenity.DateEditor;
+    }
+    class AccountingBookForm extends Serenity.PrefixedContext {
+        static formKey: string;
+        private static init;
+        constructor(prefix: string);
+    }
+}
+declare namespace DevSerene.Default {
+    interface AccountingBookRow {
+        Id?: number;
+        Date?: string;
+        Type?: string;
+        Amount?: number;
+        Category?: string;
+        Account?: string;
+        Description?: string;
+        UpdateUser?: string;
+        UpdateDate?: string;
+    }
+    namespace AccountingBookRow {
+        const idProperty = "Id";
+        const nameProperty = "Type";
+        const localTextPrefix = "Default.AccountingBook";
+        const deletePermission = "Administration:General";
+        const insertPermission = "Administration:General";
+        const readPermission = "Administration:General";
+        const updatePermission = "Administration:General";
+        const enum Fields {
+            Id = "Id",
+            Date = "Date",
+            Type = "Type",
+            Amount = "Amount",
+            Category = "Category",
+            Account = "Account",
+            Description = "Description",
+            UpdateUser = "UpdateUser",
+            UpdateDate = "UpdateDate"
+        }
+    }
+}
+declare namespace DevSerene.Default {
+    namespace AccountingBookService {
+        const baseUrl = "Default/AccountingBook";
+        function Create(request: Serenity.SaveRequest<AccountingBookRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<AccountingBookRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<AccountingBookRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<AccountingBookRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        const enum Methods {
+            Create = "Default/AccountingBook/Create",
+            Update = "Default/AccountingBook/Update",
+            Delete = "Default/AccountingBook/Delete",
+            Retrieve = "Default/AccountingBook/Retrieve",
+            List = "Default/AccountingBook/List"
+        }
+    }
+}
+declare namespace DevSerene.Default {
     class ToDoListColumns {
         static columnsKey: string;
     }
@@ -780,6 +852,47 @@ declare namespace DevSerene.Common {
     class ThemeSelection extends Serenity.Widget<any> {
         constructor(select: JQuery);
         protected getCurrentTheme(): string;
+    }
+}
+declare namespace DevSerene.Default {
+    class AccountingBookDialog extends Serenity.EntityDialog<AccountingBookRow, any> {
+        protected getFormKey(): string;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected getService(): string;
+        protected getDeletePermission(): string;
+        protected getInsertPermission(): string;
+        protected getUpdatePermission(): string;
+        protected form: AccountingBookForm;
+        protected username: string;
+        constructor(container: JQuery);
+        protected afterLoadEntity(): void;
+    }
+}
+declare namespace DevSerene.Default {
+    class AccountingBook_Expenditure_Category_Editor extends Serenity.SelectEditor {
+        constructor(input: JQuery);
+    }
+    class AccountingBook_Income_Category_Editor extends Serenity.SelectEditor {
+        constructor(input: JQuery);
+    }
+    class AccountingBook_Account_Editor extends Serenity.SelectEditor {
+        constructor(input: JQuery);
+    }
+    class AccountingBook_Type_Editor extends Serenity.SelectEditor {
+        constructor(input: JQuery);
+    }
+}
+declare namespace DevSerene.Default {
+    class AccountingBookGrid extends Serenity.EntityGrid<AccountingBookRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof AccountingBookDialog;
+        protected getIdProperty(): string;
+        protected getInsertPermission(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        constructor(container: JQuery);
     }
 }
 declare namespace DevSerene.Default {

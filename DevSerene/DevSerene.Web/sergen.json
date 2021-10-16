@@ -13,6 +13,12 @@
       "Key": "Default",
       "Tables": [
         {
+          "Tablename": "dbo.AccountingBook",
+          "Identifier": "AccountingBook",
+          "Module": "Default",
+          "PermissionKey": "Administration:General"
+        },
+        {
           "Tablename": "dbo.ToDoList",
           "Identifier": "ToDoList",
           "Module": "Default",

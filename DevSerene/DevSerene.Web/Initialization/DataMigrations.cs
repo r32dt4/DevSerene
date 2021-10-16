@@ -205,12 +205,13 @@ namespace DevSerene
 
             // safety check to ensure that we are not modifying an arbitrary database.
             // remove these lines if you want DevSerene migrations to run on your DB.
-            if (!isOracle && cs.ConnectionString.IndexOf(typeof(DataMigrations).Namespace +
-                    @"_" + databaseKey + "_v1", StringComparison.OrdinalIgnoreCase) < 0)
-            {
-                SkippedMigrations = true;
-                return;
-            }
+            // 註解掉下面，自動創建預設的table到db當中
+            //if (!isOracle && cs.ConnectionString.IndexOf(typeof(DataMigrations).Namespace +
+            //        @"_" + databaseKey + "_v1", StringComparison.OrdinalIgnoreCase) < 0)
+            //{
+            //    SkippedMigrations = true;
+            //    return;
+            //}
 
             string databaseType = isOracle ? "OracleManaged" : serverType;
 

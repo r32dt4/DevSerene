@@ -7788,3 +7788,9 @@ section.content > .s-DataGrid {
   padding: 2px 4px;
   border: 1px solid #a3b2d2;
 }
+.s-Default-ToDoListDialog > .size {
+  width: 650px;
+}
+.s-Default-ToDoListDialog .caption {
+  width: 150px;
+}

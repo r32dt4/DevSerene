@@ -33,6 +33,15 @@ namespace MVC
             {
                 public const string DashboardIndex = "~/Modules/Common/Dashboard/DashboardIndex.cshtml";
             }
+
+        }
+
+        public static class Default
+        {
+            public static class ToDoList
+            {
+                public const string ToDoListIndex = "~/Modules/Default/ToDoList/ToDoListIndex.cshtml";
+            }
         }
 
         public static class Errors

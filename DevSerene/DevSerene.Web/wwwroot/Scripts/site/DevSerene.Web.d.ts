@@ -403,6 +403,78 @@ declare namespace DevSerene.Administration {
         }
     }
 }
+declare namespace DevSerene.Default {
+    class ToDoListColumns {
+        static columnsKey: string;
+    }
+}
+declare namespace DevSerene.Default {
+    interface ToDoListForm {
+        EventName: Serenity.StringEditor;
+        Description: Serenity.TextAreaEditor;
+        StartDate: Serenity.DateEditor;
+        EndDate: Serenity.DateEditor;
+        IsFinished: Serenity.BooleanEditor;
+        CreateDate: Serenity.DateEditor;
+        UpdateUser: Serenity.StringEditor;
+        UpdateDate: Serenity.DateEditor;
+    }
+    class ToDoListForm extends Serenity.PrefixedContext {
+        static formKey: string;
+        private static init;
+        constructor(prefix: string);
+    }
+}
+declare namespace DevSerene.Default {
+    interface ToDoListRow {
+        Id?: number;
+        EventName?: string;
+        Description?: string;
+        CreateDate?: string;
+        StartDate?: string;
+        EndDate?: string;
+        IsFinished?: boolean;
+        UpdateUser?: string;
+        UpdateDate?: string;
+    }
+    namespace ToDoListRow {
+        const idProperty = "Id";
+        const nameProperty = "EventName";
+        const localTextPrefix = "Default.ToDoList";
+        const deletePermission = "Administration:General";
+        const insertPermission = "Administration:General";
+        const readPermission = "Administration:General";
+        const updatePermission = "Administration:General";
+        const enum Fields {
+            Id = "Id",
+            EventName = "EventName",
+            Description = "Description",
+            CreateDate = "CreateDate",
+            StartDate = "StartDate",
+            EndDate = "EndDate",
+            IsFinished = "IsFinished",
+            UpdateUser = "UpdateUser",
+            UpdateDate = "UpdateDate"
+        }
+    }
+}
+declare namespace DevSerene.Default {
+    namespace ToDoListService {
+        const baseUrl = "Default/ToDoList";
+        function Create(request: Serenity.SaveRequest<ToDoListRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<ToDoListRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<ToDoListRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<ToDoListRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        const enum Methods {
+            Create = "Default/ToDoList/Create",
+            Update = "Default/ToDoList/Update",
+            Delete = "Default/ToDoList/Delete",
+            Retrieve = "Default/ToDoList/Retrieve",
+            List = "Default/ToDoList/List"
+        }
+    }
+}
 declare namespace DevSerene.Membership {
     interface ChangePasswordForm {
         OldPassword: Serenity.PasswordEditor;
@@ -708,6 +780,33 @@ declare namespace DevSerene.Common {
     class ThemeSelection extends Serenity.Widget<any> {
         constructor(select: JQuery);
         protected getCurrentTheme(): string;
+    }
+}
+declare namespace DevSerene.Default {
+    class ToDoListDialog extends Serenity.EntityDialog<ToDoListRow, any> {
+        protected getFormKey(): string;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected getService(): string;
+        protected getDeletePermission(): string;
+        protected getInsertPermission(): string;
+        protected getUpdatePermission(): string;
+        protected form: ToDoListForm;
+        protected username: string;
+        constructor(container: JQuery);
+        protected afterLoadEntity(): void;
+    }
+}
+declare namespace DevSerene.Default {
+    class ToDoListGrid extends Serenity.EntityGrid<ToDoListRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof ToDoListDialog;
+        protected getIdProperty(): string;
+        protected getInsertPermission(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        constructor(container: JQuery);
     }
 }
 declare namespace DevSerene.Membership {

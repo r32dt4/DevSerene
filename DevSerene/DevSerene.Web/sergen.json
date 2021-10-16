@@ -1,4 +1,4 @@
-﻿{
+{
   "RootNamespace": "DevSerene",
   "ServerTypings": {
     "LocalTexts": true
@@ -8,6 +8,19 @@
       "/wwwroot/Scripts/serenity/Serenity.CoreLib*.*"
     ]
   },
+  "Connections": [
+    {
+      "Key": "Default",
+      "Tables": [
+        {
+          "Tablename": "dbo.ToDoList",
+          "Identifier": "ToDoList",
+          "Module": "Default",
+          "PermissionKey": "Administration:General"
+        }
+      ]
+    }
+  ],
   "UpgradeInfo": {
     "InitialType": "Community",
     "InitialVersion": "5.0.51.8"

@@ -3,7 +3,7 @@
         Date: Serenity.DateTimeEditor;
         Type: AccountingBook_Type_Editor;
         Amount: Serenity.IntegerEditor;
-        Category: AccountingBook_Expenditure_Category_Editor;
+        Category: AccountingBook_Category_Editor;
         Account: AccountingBook_Account_Editor;
         Description: Serenity.TextAreaEditor;
         UpdateUser: Serenity.StringEditor;
@@ -24,7 +24,7 @@
                 var w0 = s.DateTimeEditor;
                 var w1 = AccountingBook_Type_Editor;
                 var w2 = s.IntegerEditor;
-                var w3 = AccountingBook_Expenditure_Category_Editor;
+                var w3 = AccountingBook_Category_Editor;
                 var w4 = AccountingBook_Account_Editor;
                 var w5 = s.TextAreaEditor;
                 var w6 = s.StringEditor;

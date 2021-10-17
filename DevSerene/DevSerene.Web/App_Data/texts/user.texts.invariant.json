@@ -27,5 +27,18 @@
   "Db.Default.ToDoList.UpdateUser": "更新人員",
   "Navigation.Default": "開發功能",
   "Navigation.Default/Accounting Book": "記帳簿",
-  "Navigation.Default/To Do List": "待辦清單"
+  "Navigation.Default/To Do List": "待辦清單",
+  "Db.Default.Calendar.Username": "人員",
+  "Db.Default.Calendar.Title": "標題",
+  "Db.Default.Calendar.Event": "事件",
+  "Db.Default.Calendar.Note": "標題標記",
+  "Db.Default.Calendar.Description": "描述",
+  "Db.Default.Calendar.AllDay": "全天",
+  "Db.Default.Calendar.StartDate": "開始日期",
+  "Db.Default.Calendar.EndDate": "結束日期",
+  "Db.Default.Calendar.BackGroundColor": "背景顏色",
+  "Db.Default.Calendar.BorderColor": "邊界顏色",
+  "Db.Default.Calendar.EntityPlural": "行事曆",
+  "Db.Default.Calendar.EntitySingular": "行事曆",
+  "Navigation.Default/Calendar": "行事曆"
 }

@@ -7800,3 +7800,9 @@ section.content > .s-DataGrid {
 .s-Default-AccountingBookDialog .caption {
   width: 150px;
 }
+.s-Default-CalendarDialog > .size {
+  width: 650px;
+}
+.s-Default-CalendarDialog .caption {
+  width: 150px;
+}

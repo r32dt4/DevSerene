@@ -413,7 +413,7 @@ declare namespace DevSerene.Default {
         Date: Serenity.DateTimeEditor;
         Type: AccountingBook_Type_Editor;
         Amount: Serenity.IntegerEditor;
-        Category: AccountingBook_Expenditure_Category_Editor;
+        Category: AccountingBook_Category_Editor;
         Account: AccountingBook_Account_Editor;
         Description: Serenity.TextAreaEditor;
         UpdateUser: Serenity.StringEditor;
@@ -472,6 +472,90 @@ declare namespace DevSerene.Default {
             Delete = "Default/AccountingBook/Delete",
             Retrieve = "Default/AccountingBook/Retrieve",
             List = "Default/AccountingBook/List"
+        }
+    }
+}
+declare namespace DevSerene.Default {
+    class CalendarColumns {
+        static columnsKey: string;
+    }
+}
+declare namespace DevSerene.Default {
+    interface CalendarForm {
+        Title: Serenity.StringEditor;
+        Username: Serenity.StringEditor;
+        Event: Serenity.StringEditor;
+        Note: Serenity.StringEditor;
+        Description: Serenity.StringEditor;
+        AllDay: Serenity.BooleanEditor;
+        StartDate: Serenity.DateEditor;
+        EndDate: Serenity.DateEditor;
+        BackGroundColor: Serenity.StringEditor;
+        BorderColor: Serenity.StringEditor;
+        UpdateUser: Serenity.StringEditor;
+        UpdateDate: Serenity.DateEditor;
+    }
+    class CalendarForm extends Serenity.PrefixedContext {
+        static formKey: string;
+        private static init;
+        constructor(prefix: string);
+    }
+}
+declare namespace DevSerene.Default {
+    interface CalendarRow {
+        Id?: number;
+        Title?: string;
+        Username?: string;
+        Event?: string;
+        Note?: string;
+        Description?: string;
+        AllDay?: boolean;
+        StartDate?: string;
+        EndDate?: string;
+        BackGroundColor?: string;
+        BorderColor?: string;
+        UpdateUser?: string;
+        UpdateDate?: string;
+    }
+    namespace CalendarRow {
+        const idProperty = "Id";
+        const nameProperty = "Title";
+        const localTextPrefix = "Default.Calendar";
+        const deletePermission = "Administration:General";
+        const insertPermission = "Administration:General";
+        const readPermission = "Administration:General";
+        const updatePermission = "Administration:General";
+        const enum Fields {
+            Id = "Id",
+            Title = "Title",
+            Username = "Username",
+            Event = "Event",
+            Note = "Note",
+            Description = "Description",
+            AllDay = "AllDay",
+            StartDate = "StartDate",
+            EndDate = "EndDate",
+            BackGroundColor = "BackGroundColor",
+            BorderColor = "BorderColor",
+            UpdateUser = "UpdateUser",
+            UpdateDate = "UpdateDate"
+        }
+    }
+}
+declare namespace DevSerene.Default {
+    namespace CalendarService {
+        const baseUrl = "Default/Calendar";
+        function Create(request: Serenity.SaveRequest<CalendarRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<CalendarRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<CalendarRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<CalendarRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        const enum Methods {
+            Create = "Default/Calendar/Create",
+            Update = "Default/Calendar/Update",
+            Delete = "Default/Calendar/Delete",
+            Retrieve = "Default/Calendar/Retrieve",
+            List = "Default/Calendar/List"
         }
     }
 }
@@ -877,6 +961,9 @@ declare namespace DevSerene.Default {
     class AccountingBook_Income_Category_Editor extends Serenity.SelectEditor {
         constructor(input: JQuery);
     }
+    class AccountingBook_Category_Editor extends Serenity.SelectEditor {
+        constructor(input: JQuery);
+    }
     class AccountingBook_Account_Editor extends Serenity.SelectEditor {
         constructor(input: JQuery);
     }
@@ -888,6 +975,30 @@ declare namespace DevSerene.Default {
     class AccountingBookGrid extends Serenity.EntityGrid<AccountingBookRow, any> {
         protected getColumnsKey(): string;
         protected getDialogType(): typeof AccountingBookDialog;
+        protected getIdProperty(): string;
+        protected getInsertPermission(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        constructor(container: JQuery);
+    }
+}
+declare namespace DevSerene.Default {
+    class CalendarDialog extends Serenity.EntityDialog<CalendarRow, any> {
+        protected getFormKey(): string;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected getService(): string;
+        protected getDeletePermission(): string;
+        protected getInsertPermission(): string;
+        protected getUpdatePermission(): string;
+        protected form: CalendarForm;
+    }
+}
+declare namespace DevSerene.Default {
+    class CalendarGrid extends Serenity.EntityGrid<CalendarRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof CalendarDialog;
         protected getIdProperty(): string;
         protected getInsertPermission(): string;
         protected getLocalTextPrefix(): string;

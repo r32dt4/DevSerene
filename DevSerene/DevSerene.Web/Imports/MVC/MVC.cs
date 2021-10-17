@@ -43,6 +43,11 @@ namespace MVC
                 public const string AccountingBookIndex = "~/Modules/Default/AccountingBook/AccountingBookIndex.cshtml";
             }
 
+            public static class Calendar
+            {
+                public const string CalendarIndex = "~/Modules/Default/Calendar/CalendarIndex.cshtml";
+            }
+
             public static class ToDoList
             {
                 public const string ToDoListIndex = "~/Modules/Default/ToDoList/ToDoListIndex.cshtml";

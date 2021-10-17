@@ -19,6 +19,12 @@
           "PermissionKey": "Administration:General"
         },
         {
+          "Tablename": "dbo.Calendar",
+          "Identifier": "Calendar",
+          "Module": "Default",
+          "PermissionKey": "Administration:General"
+        },
+        {
           "Tablename": "dbo.ToDoList",
           "Identifier": "ToDoList",
           "Module": "Default",

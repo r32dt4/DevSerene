@@ -43,7 +43,7 @@ namespace DevSerene.Default
             set => fields.Amount[this] = value;
         }
 
-        [AccountingBook_Expenditure_Category_Editor]
+        [AccountingBook_Category_Editor]
         [DisplayName("Category"), Size(25)]
         public String Category
         {
